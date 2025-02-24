@@ -1,0 +1,86 @@
+.people-near-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 50px auto;
+  }
+  
+  .people-near-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .user-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+  }
+  
+  .user-card p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .current-label {
+    background-color: #007bff;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  .user-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  .search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-form input[type="text"] {
+    width: 60%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .search-form button {
+    padding: 8px 16px;
+    font-size: 16px;
+    border: 1px solid #007bff;
+    border-left: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-form button:hover {
+    background-color: #0056b3;
+  }
+  .clear-button {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: 1px solid #dc3545;
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .clear-button:hover {
+    background-color: #c9302c;
+  }
+  
+
+  

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Наши пользователи</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/people-near.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <div class="people-near-container">
+    <h1>Наши пользователи</h1>
+    
+    <!-- Форма поиска -->
+    <form action="/people-near" method="GET" class="search-form">
+        <input type="text" name="q" placeholder="Поиск по имени и фамилии" value="<%= q %>">
+        <button type="submit" class="search-button">Найти</button>
+        <a href="/people-near" class="clear-button">Очистить</a>
+      </form>
+    
+    <% if (users && users.length > 0) { %>
+      <% users.forEach(function(user) { %>
+        <a class="user-card-link" href="<%= user.isCurrent ? '/profile/' + user._id : '/profile-view/' + user._id %>">
+          <div class="user-card">
+            <p>
+              <strong><%= user.surname %> <%= user.name %></strong>
+              <% if (user.isCurrent) { %>
+                <span class="current-label">Это ВЫ</span>
+              <% } %>
+            </p>
+            <p>Возраст: <%= user.age %></p>
+            <p>Информация о себе: <%= user.user_info && user.user_info.trim() !== '' ? user.user_info : 'Нет информации' %></p>
+          </div>
+        </a>
+      <% }); %>
+    <% } else { %>
+      <p>Пользователей не найдено.</p>
+    <% } %>
+  </div>
+</body>
+</html>

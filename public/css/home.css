@@ -1,0 +1,74 @@
+/* Сброс базовых стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  /* Стилизация хедера и навигации */
+  header {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* увеличено расстояние между ссылками */
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    text-transform: uppercase; /* ссылки с заглавными буквами */
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #b5bbc2;
+  }
+  
+  /* Стилизация секции hero */
+  .hero {
+    text-align: center;
+    padding: 250px 20px; /* увеличен верхний отступ, чтобы название было ниже */
+  }
+  
+  .hero h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .hero p {
+    font-size: 20px;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: 'Open Sans', sans-serif; /* подключённый минималистичный шрифт */
+    font-weight: 300; /* лёгкий вес для минималистичного эффекта */
+    letter-spacing: 0.5px;
+    
+  }
+  .hero p a {
+    text-decoration: none;
+  }
+  .highlight-link {
+    font-weight: bold;      /* Жирный шрифт для выделения */
+    font-size: 1.1em;       /* Немного увеличенный размер */
+    color: #007bff;         /* Яркий синий цвет */
+    padding: 2px 4px;       /* Небольшие отступы вокруг текста */
+    border-radius: 3px;     /* Скругление углов */
+    text-decoration: none;  /* Убираем стандартное подчеркивание */
+  }
+  

@@ -1,0 +1,17 @@
+<!-- views/partials/header.ejs -->
+<header>
+    <nav>
+      <ul>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/posts">Посты</a></li>
+        <li><a href="/people-near">Люди</a></li>
+        <% if (currentUser) { %>
+          <li><a href="/profile/<%= currentUser.id %>">Профиль</a></li>
+        <% } else { %>
+          <li><a href="/login">Логин</a></li>
+        <% } %>
+        
+      </ul>
+    </nav>
+  </header>
+  

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль пользователя</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <!-- Контейнер с информацией о пользователе -->
+  <div class="profile-info-container">
+    <div class="profile-header">
+      <h1><%= profileUser.name %> <%= profileUser.surname %></h1>
+    </div>
+    <div class="profile-info">
+      <p><strong>Возраст:</strong> <%= profileUser.age %></p>
+      <p><strong>Почта:</strong> <%= profileUser.email %></p>
+      <p>
+        <strong>Информация о себе:</strong> 
+        <% if (profileUser.user_info && profileUser.user_info.trim() !== '') { %>
+          <%= profileUser.user_info %>
+        <% } else { %>
+          Нет информации
+        <% } %>
+      </p>
+      <p><strong>Роль:</strong> <%= profileUser.role %></p>
+    </div>
+  </div>
+
+  <!-- Контейнер для списка постов пользователя -->
+  <div class="posts-container">
+    <h2>Посты пользователя</h2>
+    <% if (posts && posts.length > 0) { %>
+      <% posts.forEach(function(post) { %>
+        <div class="post-card">
+            <h3><%= post.title %></h3>
+            <p><%= post.main_info %></p>
+            <% if (post.media && post.images && post.images.length > 0) { %>
+              <div class="post-images">
+                <% post.images.forEach(function(img) { %>
+                  <img src="/add/<%= post._id %>/<%= img %>" alt="Изображение поста" />
+                <% }); %>
+              </div>
+            <% } else if (post.media) { %>
+              <p><em>Пост содержит медиа файлы</em></p>
+            <% } %>
+          </div>
+      <% }); %>
+    <% } else { %>
+      <p>Постов нет.</p>
+    <% } %>
+  </div>
+</body>
+</html>

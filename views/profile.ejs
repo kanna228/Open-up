@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль</title>
+  <!-- Общие стили -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <!-- Стили для страницы профиля -->
+  <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <!-- Контейнер для информации о пользователе e-->
+  <div class="profile-info-container">
+    <!-- Верхний блок, где выводим Имя и Фамилию -->
+    <div class="profile-header">
+      <h1><%= user.name %> <%= user.surname %></h1>
+    </div>
+
+    <div class="profile-info">
+      <p><strong>Возраст:</strong> <%= user.age %></p>
+      <p><strong>Почта:</strong> <%= user.email %></p>
+      <p>
+        <strong>Информация о себе:</strong>
+        <% if (user.user_info && user.user_info.trim() !== '') { %>
+          <%= user.user_info %>
+        <% } else { %>
+          <a href="/profile/<%= user._id %>/edit">Написать информацию о себе</a>
+        <% } %>
+      </p>
+      <p><strong>Роль:</strong> <%= user.role %></p>
+      <% if (user.role === 'admin') { %>
+        <div class="admin-user-delete">
+          <h3>Удаление пользователя</h3>
+          <form action="/admin/delete-user" method="POST">
+            <label for="userId">Введите ObjectId пользователя:</label>
+            <input type="text" id="userId" name="userId" required>
+            <button type="submit" class="delete-user-button">Удалить пользователя</button>
+          </form>
+        </div>
+      <% } %>
+      
+    </div>
+
+    <div class="buttons-container">
+      <!-- Кнопка для редактирования своего профиля -->
+      <a href="/profile/<%= user._id %>/edit" class="edit-button">Обновить информацию</a>
+      <!-- Кнопка для создания поста -->
+      <a href="/post/create/<%= user._id %>" class="create-post-button">Создать пост</a>
+      <!-- Кнопка для выхода -->
+      <a href="/logout" class="logout-button">Выйти из аккаунта</a>
+    </div>
+  </div>
+
+  <!-- Контейнер для списка постов -->
+  <div class="posts-container">
+    <h2>Ваши посты</h2>
+    <% if (posts && posts.length > 0) { %>
+      <% posts.forEach(function(post) { %>
+        <div class="post-card">
+            <h3><%= post.title %></h3>
+            <p><%= post.main_info %></p>
+            
+            <% if (post.images && post.images.length > 0) { %>
+              <div class="post-images">
+                <% post.images.forEach(function(img) { %>
+                  <img src="/add/<%= post._id %>/<%= img %>" alt="Изображение поста">
+                <% }); %>
+              </div>
+            <% } %>
+            
+            <!-- Контейнер для кнопок редактирования и удаления -->
+            <div class="post-buttons">
+              <a href="/post/edit/<%= post._id %>" class="edit-post-button">Редактировать</a>
+              <a href="/post/delete/<%= post._id %>" class="delete-post-button">Удалить</a>
+            </div>
+          </div>
+          
+          
+      <% }); %>
+    <% } else { %>
+      <p>Постов нет.</p>
+    <% } %>
+  </div>
+</body>
+</html>

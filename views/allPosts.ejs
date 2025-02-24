@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Все посты</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/allPosts.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+  <div class="all-posts-container">
+    <h1>Все посты</h1>
+    <% if (posts && posts.length > 0) { %>
+      <% posts.forEach(function(post) { %>
+        <div class="post-card">
+          <div class="post-author">
+            <p>
+              <strong>
+                <a href="/profile-view/<%= post.user_id._id %>" class="author-link">
+                  <%= post.user_id.surname %> <%= post.user_id.name %>
+                </a>
+              </strong>
+            </p>
+          </div>
+          <div class="post-content">
+            <h3><%= post.title %></h3>
+            <p><%= post.main_info %></p>
+          </div>
+          <% if (post.images && post.images.length > 0) { %>
+            <div class="post-images">
+              <% post.images.forEach(function(img) { %>
+                <img src="/add/<%= post._id %>/<%= img %>" alt="Изображение поста">
+              <% }); %>
+            </div>
+          <% } %>
+          <!-- Если текущий пользователь является администратором, показываем кнопку удаления -->
+            <% if (currentUser && currentUser.role === 'admin') { %>
+                <div class="post-buttons">
+                <a href="/post/delete/<%= post._id %>" class="delete-post-button">Удалить</a>
+                </div>
+            <% } %>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>Постов нет.</p>
+    <% } %>
+  </div>
+</body>
+</html>

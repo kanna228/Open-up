@@ -1,0 +1,222 @@
+/* Родительский контейнер для всей страницы профиля, если нужно */
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Контейнер с информацией о пользователе */
+  .profile-info-container {
+    width: 80%;
+    max-width: 700px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Заголовок с именем и фамилией */
+  .profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #333;
+  }
+  
+  /* Информация о пользователе */
+  .profile-info p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .profile-info strong {
+    color: #333;
+  }
+  
+  /* Кнопки под профилем */
+  .buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .edit-button,
+  .create-post-button,
+  .logout-button {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Пример расцветки кнопок */
+  .edit-button {
+    background-color: #007bff;
+  }
+  .edit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .create-post-button {
+    background-color: #28a745;
+  }
+  .create-post-button:hover {
+    background-color: #218838;
+  }
+  
+  .logout-button {
+    background-color: #d9534f;
+  }
+  .logout-button:hover {
+    background-color: #c9302c;
+  }
+  
+  /* Контейнер для списка постов */
+  .posts-container {
+    width: 80%;
+    max-width: 700px;
+    margin: 20px auto 40px auto; /* Отдельный блок ниже профиля */
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .posts-container h2 {
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .post-card h3 {
+    margin-top: 0;
+    color: #007bff;
+  }
+  
+  .post-card p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+  }
+
+  /* Контейнер каждого поста */
+.post-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 30px; 
+    background-color: #f9f9f9;
+    padding: 15px;
+    /* Если хотите зафиксировать кнопку в самом низу, используйте flex:
+    display: flex;
+    flex-direction: column;
+    */
+  }
+  
+  /* Блок с изображениями в посте */
+  .post-images {
+    margin-top: 10px;
+  }
+  
+  /* Сами изображения */
+  .post-images img {
+    display: block;      /* Чтобы изображения шли каждое на новой строке */
+    max-width: 100%;     /* Адаптивная ширина */
+    margin-bottom: 10px; /* Отступ между изображениями */
+  }
+  
+  .post-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 30px; /* увеличенный отступ между постами */
+    background-color: #fefefe;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .post-images {
+    margin-top: 20px;
+  }
+  
+  .post-images img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
+  
+  .post-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .edit-post-button,
+  .delete-post-button {
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-post-button {
+    background-color: #007bff;
+  }
+  
+  .edit-post-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .delete-post-button {
+    background-color: #dc3545;
+  }
+  
+  .delete-post-button:hover {
+    background-color: #c9302c;
+  }
+
+/* Заголовок */
+.admin-user-delete h3 {
+    margin-bottom: 15px;
+}
+
+/* Поле ввода */
+.admin-user-delete input[type="text"] {
+    width: 80%;
+    margin-top: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Кнопка удаления */
+.delete-user-button {
+    background-color: #dc3545; /* Красный цвет */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Эффект при наведении */
+.delete-user-button:hover {
+    background-color: #c82333;
+}

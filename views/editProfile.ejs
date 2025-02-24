@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Редактировать профиль</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/editProfile.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <div class="edit-container">
+    <h1>Редактировать профиль</h1>
+    <form action="/profile/<%= user._id %>/edit" method="POST">
+      <div class="form-group">
+        <label for="name">Имя</label>
+        <input 
+          type="text" 
+          name="name" 
+          id="name" 
+          value="<%= user.name %>" 
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="surname">Фамилия</label>
+        <input 
+          type="text" 
+          name="surname" 
+          id="surname" 
+          value="<%= user.surname %>" 
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="age">Возраст</label>
+        <input 
+          type="number" 
+          name="age" 
+          id="age" 
+          value="<%= user.age %>" 
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="email">Почта</label>
+        <input 
+          type="email" 
+          name="email" 
+          id="email" 
+          value="<%= user.email %>" 
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="password">Новый пароль</label>
+        <input 
+          type="password" 
+          name="password" 
+          id="password" 
+          placeholder="Оставьте пустым, если не хотите менять"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="user_info">Информация о себе</label>
+        <textarea 
+          name="user_info" 
+          id="user_info" 
+          rows="4" 
+          placeholder="Напишите что-нибудь о себе..."
+        ><%= user.user_info %></textarea>
+      </div>
+
+      <button type="submit" class="save-button">Сохранить</button>
+    </form>
+  </div>
+</body>
+</html>

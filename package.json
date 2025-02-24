@@ -1,0 +1,23 @@
+{
+  "name": "final-web-2",
+  "version": "1.0.0",
+  "description": "Это проект платформы блога, разработанный с использованием Node.js, Express.js и MongoDB (Mongoose). В приложении реализованы функции регистрации, авторизации, создания, редактирования и удаления постов, а также просмотр профилей пользователей и поиск по списку пользователей. Дополнительно предусмотрены административные возможности для удаления любых постов и пользователей.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.10.1",
+    "multer": "^1.4.5-lts.1"
+  }
+}

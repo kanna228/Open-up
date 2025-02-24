@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Логин</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <div class="login-container">
+    <h1>Логин</h1>
+    
+    <!-- Если есть ошибка, показываем ее -->
+    <% if (typeof error !== 'undefined' && error) { %>
+      <p style="color: red; text-align: center;"><%= error %></p>
+    <% } %>
+    
+    <form action="/login" method="POST">
+      <div class="form-group">
+        <label for="email">Почта</label>
+        <input type="email" name="email" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Пароль</label>
+        <input type="password" name="password" id="password" required>
+      </div>
+      <button type="submit">Войти</button>
+    </form>
+    
+    <p class="register-link">
+      Нет аккаунта? <a href="/register">Создать</a>
+    </p>
+  </div>
+</body>
+</html>
